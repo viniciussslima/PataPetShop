@@ -37,7 +37,7 @@
   }
   ```
 
-- POST - /employee/add
+- POST - /employee
 
   Adciona a um usuário o status de funcionário
 
@@ -50,11 +50,11 @@
   }
   ```
 
-- DELETE - /employee/remove
+- DELETE - /employee
 
   Remove o status de funcionário de usuário
 
-- POST - /products/add
+- POST - /products
   - BODY
   ```javascript
   {
@@ -65,7 +65,15 @@
 
   Informa todos os produtos cadastrados
 
-- DELETE - /products/remove
+  - QUERY (OPCIONAL)
+
+  ```javascript
+  {
+      name: "name",
+  }
+  ```
+
+- DELETE - /products
 
   Apaga um produto do sistema
 
@@ -78,7 +86,7 @@
   }
   ```
 
-- PUT - /products/update
+- PUT - /products
 
   Atualiza um produto
 
@@ -92,19 +100,7 @@
   }
   ```
 
-- GET - /products/search
-
-  Faz a pesquisa por produtos através de um texto
-
-  - QUERY
-
-  ```javascript
-  {
-      text: "text",
-  }
-  ```
-
-- PUT - /cart/add
+- PUT - /cart
 
   Adiciona um produto ao carrinho
 
