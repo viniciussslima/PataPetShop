@@ -5,27 +5,34 @@
 ## DIM0547 - DESENVOLVIMENTO DE SISTEMAS WEB II
 
 ## Alunos:
+
 - ### Daniele Carvalho
 - ### Vinicius Santos
 
 ## Endpoints
 
-- PUT - /auth/create
+- POST - /auth/create
+
   - BODY
+
   ```javascript
   {
       username: "username",
       password: "password"
   }
   ```
+
 - POST - /auth/login
+
   - BODY
+
   ```javascript
   {
       username: "username",
       password: "password"
   }
   ```
+
 - POST - /employee/add
   - BODY
   ```javascript
@@ -35,7 +42,7 @@
   }
   ```
 - DELETE - /employee/remove
-- PUT - /products/add
+- POST - /products/add
   - BODY
   ```javascript
   {
@@ -44,6 +51,7 @@
   ```
 - GET - /products
 - DELETE - /products/remove
+
   - BODY
 
   ```javascript
@@ -52,7 +60,8 @@
 
   }
   ```
-- POST - /products/update
+
+- PUT - /products/update
   - BODY
   ```javascript
   {
@@ -68,7 +77,7 @@
       text: "text",
   }
   ```
-- POST - /cart/add
+- PUT - /cart/add
   - BODY
   ```javascript
   {
