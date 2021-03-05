@@ -1,0 +1,19 @@
+{
+  "name": "PataPetShop",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/viniciussslima/PataPetShop.git",
+  "author": {
+    "name": "Vinicius Santos",
+    "email": "viniciussslima999@gmail.com",
+    "url": "https://viniciussslima.github.io"
+  },
+  "contributors": [
+    {
+      "name": "Daniele Carvalho",
+      "email": "dannysee@ufrn.edu.br",
+      "url": "https://github.com/daniele-mc"
+    }
+  ],
+  "license": "MIT"
+}
