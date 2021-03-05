@@ -9,6 +9,38 @@
 - ### Daniele Carvalho
 - ### Vinicius Santos
 
+## Variaveis de ambiente
+
+- MYSQL_URL: URL do banco de dados mysql
+- MYSQL_USER: Usuario do banco de dados
+- MYSQL_PASSWORD: Senha do usuario do banco de dados
+
+## Como usar
+
+### Primeiro passo
+
+```bash
+$ npm install
+```
+
+OU
+
+```bash
+$ yarn install
+```
+
+### Segundo passo
+
+```bash
+$ npm start
+```
+
+OU
+
+```bash
+$ yarn start
+```
+
 ## Endpoints
 
 - POST - /auth/create
