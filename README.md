@@ -19,6 +19,8 @@
 
 ### Primeiro passo
 
+Dentro da pasta API execute o comando:
+
 ```bash
 $ npm install
 ```
@@ -30,6 +32,8 @@ $ yarn install
 ```
 
 ### Segundo passo
+
+Dentro da pasta API execute o comando:
 
 ```bash
 $ npm start
@@ -90,6 +94,14 @@ $ yarn start
     ```javascript
     {
         message: "Esse usuário não existe",
+    }
+    ```
+
+    401 - Error
+
+    ```javascript
+    {
+        message: "Senha incorreta",
     }
     ```
 
@@ -412,7 +424,9 @@ $ yarn start
 
   Informa os atendimentos cadastrados
 
-  200 - Sucesso
+  - RESPOSTAS
+
+    200 - Sucesso
 
   ```javascript
   [
