@@ -89,6 +89,13 @@ $ yarn start
 
     200 - Sucesso
 
+    ```javascript
+    {
+      token: "token", // Esse token deve ser usado para todas as requisições que necessitam de autorização
+    }
+
+    ```
+
     401 - Error
 
     ```javascript
@@ -105,16 +112,30 @@ $ yarn start
     }
     ```
 
-- POST - /employee
+- POST - /auth/logout
 
-  Adciona a um usuário o status de funcionário
+  Encerra a sensão de um usuário
+
+  - RESPOSTAS
+
+    200 - Sucesso
+
+    ```javascript
+    {
+        token: null,
+    }
+    ```
+
+- PUT - /user
+
+  Atualiza um usuário
 
   - BODY
 
     ```javascript
     {
         username: "username",
-        type: "vet" // Esse campo aceita apenas vet, seller e washer
+        type: "vet" // Esse campo aceita apenas client, vet, seller, washer e admin. Os tipos só podem ser atualizados por administradores
     }
     ```
 
@@ -138,17 +159,67 @@ $ yarn start
     }
     ```
 
-    409 - Error
+- PUT - /user/password
+
+  Atualiza a senha do usuário
+
+  - BODY
 
     ```javascript
     {
-        message: "Esse usuário já é um funcionário",
+        username: "username",
+        password: "password"
     }
     ```
 
-- DELETE - /employee
+  - RESPOSTAS
 
-  Remove o status de funcionário de usuário
+    201 - Sucesso
+
+    401 - Error
+
+    ```javascript
+    {
+        message: "Esse usuário não existe",
+    }
+    ```
+
+- GET - /user
+
+  Retorna os usuarios dos tipos vet, washer, seller e admin
+
+  - QUERY (OPCIONAL)
+
+    ```javascript
+    {
+      type: "vet"; // O tipo pode ser apenas vet, washer, seller ou admin
+    }
+    ```
+
+  - Respostas
+
+    200 - Sucesso
+
+    ```javascript
+    [
+      {
+        username: "username",
+        type: "vet",
+      },
+    ];
+    ```
+
+    400 - Error
+
+    ```javascript
+    {
+      message: "O valor do campo type é inválido"
+    },
+    ```
+
+- DELETE - /user
+
+  Remove um usuário do sistema
 
   - Respostas
 
@@ -158,7 +229,7 @@ $ yarn start
 
     ```javascript
     {
-        message: "Esse usuário não existe ou ele não é um funcinário",
+        message: "Esse usuário não existe",
     }
     ```
 
