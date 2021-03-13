@@ -45,6 +45,24 @@ OU
 $ yarn start
 ```
 
+## Testes
+
+Os teste ficam no diretorio API/tests
+
+Dentro da pasta API execute o comando:
+
+```bash
+$ yarn test
+```
+
+para rodar todos os testes
+
+Ou para rodar um teste específico execute o comando:
+
+```bash
+$ yarn test NomeDoArquivoDeTeste
+```
+
 ## Endpoints
 
 - POST - /auth/create
