@@ -1,8 +1,11 @@
-name: devWorkflow
+name: testWorkflow
 on:
   push:
     branches:
       - dev
+defaults:
+  run:
+    working-directory: API
 jobs:
   createUser:
     name: Create user
