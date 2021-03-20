@@ -4,7 +4,7 @@ const { login } = require("./helpers");
 
 describe("Endpoint /user", () => {
   it("Success", async () => {
-    const token = await login("teste1");
+    const token = await login("teste1", "1234");
     const response = await request(server)
       .delete("/user")
       .set("x-access-token", token)
@@ -16,7 +16,7 @@ describe("Endpoint /user", () => {
 
 describe("Endpoint /user", () => {
   it("Success", async () => {
-    const token = await login("teste3");
+    const token = await login("teste3", "1234");
     const response = await request(server)
       .delete("/user")
       .set("x-access-token", token)
@@ -28,7 +28,7 @@ describe("Endpoint /user", () => {
 
 describe("Endpoint /user", () => {
   it("Fail", async () => {
-    const token = await login("teste1");
+    const token = await login("teste1", "1234");
     const response = await request(server)
       .delete("/user")
       .set("x-access-token", token)
@@ -43,7 +43,7 @@ describe("Endpoint /user", () => {
 
 describe("Endpoint /user", () => {
   it("Fail", async () => {
-    const token = await login("teste4");
+    const token = await login("teste4", "1234");
     const response = await request(server)
       .delete("/user")
       .set("x-access-token", token)
