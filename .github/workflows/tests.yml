@@ -1,0 +1,186 @@
+name: devWorkflow
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  createUser:
+    name: Create user
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/createUser.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test createUser
+  login:
+    name: Login
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/login.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test login
+  logout:
+    name: Logout
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test logout
+  getUser:
+    name: Get user
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/getUser.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test getUser
+  updateUser:
+    name: Update user
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/updateUser.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test updateUser
+  deleteUser:
+    name: Delete user
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/deleteUser.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test deleteUser
