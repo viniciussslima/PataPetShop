@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(routes);
 
-if (process.env.NODE_ENV) {
+if (process.env.NODE_ENV !== "test") {
   app.listen(3001, () => {
     console.log("API rodando na porta 3001");
   });
