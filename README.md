@@ -185,8 +185,8 @@ $ yarn test NomeDoArquivoDeTeste
 
     ```javascript
     {
-        username: "username",
-        password: "password"
+        password: "password",
+        newPassword: "newPassword"
     }
     ```
 
@@ -198,7 +198,7 @@ $ yarn test NomeDoArquivoDeTeste
 
     ```javascript
     {
-        message: "Esse usuário não existe",
+        message: "Senha incorreta",
     }
     ```
 
