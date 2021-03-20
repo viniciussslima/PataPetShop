@@ -20,6 +20,6 @@ module.exports = async (req, res) => {
 
     return res.status(200).send();
   } catch (err) {
-    return res.status(400).send({ message: "Esse usuário já existe" });
+    return res.status(409).send({ message: "Esse usuário já existe" });
   }
 };

@@ -1,4 +1,4 @@
-const { updateUser } = require("../dao");
+const { getUserByUsername, updateUser } = require("../dao");
 
 module.exports = async (req, res) => {
   const { username, type } = req.body;
@@ -6,13 +6,19 @@ module.exports = async (req, res) => {
   if (!types.includes(type)) {
     return res
       .status(400)
-      .send({ messsage: "O valor do campo type é inválido" });
+      .send({ message: "O valor do campo type é inválido" });
   }
   try {
-    await updateUser(username, type);
+    const user = await getUserByUsername(username);
+    if (user) {
+      await updateUser(username, type);
+    } else {
+      return res.status(401).send({ message: "Esse usuário não existe" });
+    }
 
     res.status(200).send();
   } catch (err) {
-    res.status(500).send({ messsage: "Erro interno" });
+    console.log(err);
+    res.status(500).send({ message: "Erro interno" });
   }
 };

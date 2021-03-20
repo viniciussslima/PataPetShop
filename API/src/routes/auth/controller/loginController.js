@@ -20,7 +20,9 @@ module.exports = async (req, res) => {
     }
 
     if (dbResponse.password === cryptoPassword) {
-      let token = jwt.sign({ username }, process.env.JWT_SECRET);
+      let token = jwt.sign({ username }, process.env.JWT_SECRET, {
+        expiresIn: 60 * 15,
+      });
       res.status(200).send({ token });
     } else {
       res.status(401).send({ message: "Senha incorreta" });
