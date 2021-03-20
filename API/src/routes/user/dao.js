@@ -7,6 +7,9 @@ const SQL = {
   getUsersByType: "SELECT username, type FROM user WHERE type = ?",
   getUserType: "SELECT type FROM user WHERE username = ?",
   deleteUser: "DELETE FROM user WHERE username = ?",
+  updateUserPassword: "UPDATE user SET password = ? WHERE username = ?",
+  checkPassword:
+    "SELECT username FROM user WHERE username = ? AND password = ?",
 };
 
 exports.getUserByUsername = async (username) => {
@@ -35,4 +38,13 @@ exports.getUsers = async () => {
 exports.getUsersByType = async (type) => {
   let [response] = await mysql.query(SQL.getUsersByType, [type]);
   return response;
+};
+
+exports.checkPassword = async (username, password) => {
+  let [[response]] = await mysql.query(SQL.checkPassword, [username, password]);
+  return response;
+};
+
+exports.updateUserPassword = async (username, password) => {
+  await mysql.query(SQL.updateUserPassword, [password, username]);
 };

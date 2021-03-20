@@ -6,6 +6,7 @@ const verifyType = require("../../middwares/verifyType");
 const updateController = require("./controller/updateController");
 const getController = require("./controller/getController");
 const deleteController = require("./controller/deleteController");
+const updatePasswordController = require("./controller/updatePasswordController");
 
 router.put(
   "/",
@@ -22,5 +23,5 @@ router.get(
   getController
 );
 router.delete("/", jwtVerify, deleteController);
-
+router.put("/password", jwtVerify, updatePasswordController);
 module.exports = router;
