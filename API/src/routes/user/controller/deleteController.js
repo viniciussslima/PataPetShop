@@ -1,5 +1,4 @@
-const { getUserType } = require("../../../middwares/dao");
-const { deleteUser } = require("../dao");
+const { getUserType, getUserByUsername, deleteUser } = require("../dao");
 
 module.exports = async (req, res) => {
   const { username } = req.body;
@@ -12,7 +11,12 @@ module.exports = async (req, res) => {
           .send({ message: "Você não tem permissão para isso" });
       }
     }
-    await deleteUser(username);
+    const user = await getUserByUsername(username);
+    if (user) {
+      await deleteUser(username);
+    } else {
+      return res.status(401).send({ message: "Esse usuário não existe" });
+    }
 
     res.status(200).send();
   } catch (err) {
