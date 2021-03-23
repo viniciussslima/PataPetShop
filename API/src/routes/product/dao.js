@@ -5,6 +5,7 @@ const SQL = {
   getProduct: "SELECT * FROM product WHERE name = ?",
   getProducts: "SELECT * FROM product",
   searchProducts: "SELECT * FROM product WHERE name LIKE ?",
+  deleteProducts: "DELETE FROM product WHERE name = ?",
 };
 
 exports.createProduct = async (product) => {
@@ -25,4 +26,8 @@ exports.searchProducts = async (name) => {
 exports.getProducts = async () => {
   const [response] = await mysql.query(SQL.getProducts);
   return response;
+};
+
+exports.deleteProduct = async (name) => {
+  await mysql.query(SQL.deleteProducts, [name]);
 };
