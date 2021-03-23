@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - dev
+      - main
 defaults:
   run:
     working-directory: API
