@@ -259,7 +259,8 @@ $ yarn test NomeDoArquivoDeTeste
     {
         name: "nome"
         description: "descrição",
-        price: 1.30
+        price: 1.30,
+        stock: 10
     }
     ```
 
@@ -275,7 +276,7 @@ $ yarn test NomeDoArquivoDeTeste
     }
     ```
 
-- GET - /products
+- GET - /product
 
   Informa todos os produtos cadastrados
 
@@ -295,11 +296,12 @@ $ yarn test NomeDoArquivoDeTeste
     [{
         name: "produto1"
         description: "descrição"
-        price: 10.10
+        price: 10.10,
+        stock: 10
     }]
     ```
 
-- DELETE - /products
+- DELETE - /product
 
   Apaga um produto do sistema
 
@@ -316,15 +318,15 @@ $ yarn test NomeDoArquivoDeTeste
 
     200 - Sucesso
 
-    401 - Error
+    400 - Error
 
     ```javascript
     {
-      message: "Esse produto não existe";
+      message: "Você tem que passar pelo menos um produto";
     }
     ```
 
-- PUT - /products
+- PUT - /product
 
   Atualiza um produto
 
@@ -333,8 +335,9 @@ $ yarn test NomeDoArquivoDeTeste
     ```javascript
     {
         name: "nome do produto",
-        keys: ["price", "name"], // O array aceita price, name e description
-        values: [10, "product2"] // A ordem desse array deve ser correspondente a ordem do array keys
+        description: "descrição"
+        price: 10,
+        stock: 10,
     }
     ```
 
