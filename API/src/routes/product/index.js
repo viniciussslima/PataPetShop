@@ -4,6 +4,7 @@ const router = express.Router();
 const jwtVerify = require("../../middwares/jwtVerify");
 const verifyType = require("../../middwares/verifyType");
 const createController = require("./controller/createController");
+const getController = require("./controller/getController");
 router.post(
   "/",
   jwtVerify,
@@ -11,4 +12,5 @@ router.post(
     verifyType(req, res, next, ["client", "vet", "seller", "washer"]),
   createController
 );
+router.get("/", getController);
 module.exports = router;
