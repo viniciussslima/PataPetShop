@@ -6,6 +6,7 @@ const SQL = {
   getProducts: "SELECT * FROM product",
   searchProducts: "SELECT * FROM product WHERE name LIKE ?",
   deleteProducts: "DELETE FROM product WHERE name = ?",
+  updateProduct: "UPDATE product SET ? WHERE name = ?",
 };
 
 exports.createProduct = async (product) => {
@@ -30,4 +31,8 @@ exports.getProducts = async () => {
 
 exports.deleteProduct = async (name) => {
   await mysql.query(SQL.deleteProducts, [name]);
+};
+
+exports.updateProduct = async (name, product) => {
+  await mysql.query(SQL.updateProduct, [product, name]);
 };
