@@ -28,7 +28,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/createUser.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/auth/createUser.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -60,7 +60,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/login.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/auth/login.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -112,7 +112,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/getUser.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/user/getUser.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -144,7 +144,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/updateUser.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/user/updateUser.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -176,7 +176,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/deleteUser.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/user/deleteUser.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -208,7 +208,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/updatePassword.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/user/updatePassword.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
