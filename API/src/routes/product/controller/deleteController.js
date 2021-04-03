@@ -10,7 +10,9 @@ module.exports = async (req, res) => {
       return res.status(200).send();
     }
 
-    return res.status(400).send("Você tem que passar pelo menos um produto");
+    return res
+      .status(400)
+      .send({ message: "Você tem que passar pelo menos um produto" });
   } catch (err) {
     console.log(err);
     return res.status(500).send();

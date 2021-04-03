@@ -12,8 +12,6 @@ module.exports = async (req, res) => {
 
     delete req.body.name;
 
-    console.log(product.name, req.body);
-
     await updateProduct(product.name, req.body);
 
     return res.status(200).send();
