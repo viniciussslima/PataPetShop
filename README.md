@@ -257,7 +257,7 @@ $ yarn test NomeDoArquivoDeTeste
 
     ```javascript
     {
-        name: "nome"
+        name: "nome",
         description: "descrição",
         price: 1.30,
         stock: 10
@@ -293,12 +293,14 @@ $ yarn test NomeDoArquivoDeTeste
     200 - Sucesso
 
     ```javascript
-    [{
-        name: "produto1"
-        description: "descrição"
-        price: 10.10,
-        stock: 10
-    }]
+    [
+      {
+        name: "produto1",
+        description: "descrição",
+        price: 10.1,
+        stock: 10,
+      },
+    ];
     ```
 
 - DELETE - /product
@@ -335,9 +337,9 @@ $ yarn test NomeDoArquivoDeTeste
     ```javascript
     {
         name: "nome do produto",
-        description: "descrição"
+        description: "descrição",
         price: 10,
-        stock: 10,
+        stock: 10
     }
     ```
 
@@ -345,7 +347,7 @@ $ yarn test NomeDoArquivoDeTeste
 
     201 - Sucesso
 
-    401 - Error
+    400 - Error
 
     ```javascript
     {
