@@ -12,7 +12,8 @@ CREATE TABLE IF NOT EXISTS `PataPetShop`.`product` (
   `description` VARCHAR(255) NULL DEFAULT NULL,
   `price` FLOAT NOT NULL,
   `stock` INT NOT NULL,
-  PRIMARY KEY (`name`));
+  PRIMARY KEY (`name`))
+DEFAULT CHARACTER SET = utf8;
 
 INSERT INTO `user` VALUES ('teste1', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'admin');
 INSERT INTO `user` VALUES ('teste2', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'client');

@@ -6,7 +6,8 @@ CREATE TABLE IF NOT EXISTS `PataPetShop`.`product` (
   `description` VARCHAR(255) NULL DEFAULT NULL,
   `price` FLOAT NOT NULL,
   `stock` INT NOT NULL,
-  PRIMARY KEY (`name`));
+  PRIMARY KEY (`name`))
+DEFAULT CHARACTER SET = utf8;
 
 INSERT INTO `product` VALUES ('produto1', 'descrição1', 10.1, 10);
 INSERT INTO `product` VALUES ('produto2', 'descrição2', 15, 50);
