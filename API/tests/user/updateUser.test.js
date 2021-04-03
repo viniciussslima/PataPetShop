@@ -1,6 +1,6 @@
-const server = require("../src/index");
+const server = require("../../src/index");
 const request = require("supertest");
-const { login } = require("./helpers");
+const { login } = require("../helpers");
 
 describe("Endpoint /user", () => {
   it("Success", async () => {

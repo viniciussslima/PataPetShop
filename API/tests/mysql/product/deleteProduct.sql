@@ -5,10 +5,18 @@ CREATE TABLE IF NOT EXISTS `PataPetShop`.`user` (
   `username` VARCHAR(255) NOT NULL,
   `password` CHAR(64) NOT NULL,
   `type` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`username`));
+  PRIMARY KEY (`username`))
+DEFAULT CHARACTER SET = utf8;
+  
+CREATE TABLE IF NOT EXISTS `PataPetShop`.`product` (
+  `name` VARCHAR(255) NOT NULL,
+  `description` VARCHAR(255) NULL DEFAULT NULL,
+  `price` FLOAT NOT NULL,
+  `stock` INT NOT NULL,
+  PRIMARY KEY (`name`))
+DEFAULT CHARACTER SET = utf8;
 
 INSERT INTO `user` VALUES ('teste1', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'admin');
 INSERT INTO `user` VALUES ('teste2', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'client');
-INSERT INTO `user` VALUES ('teste3', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'client');
-INSERT INTO `user` VALUES ('teste4', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'client');
-INSERT INTO `user` VALUES ('teste5', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'client');
+
+INSERT INTO `product` VALUES ('produto1', 'descrição', 10, 10);

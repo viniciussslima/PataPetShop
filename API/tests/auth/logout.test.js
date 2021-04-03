@@ -1,4 +1,4 @@
-const server = require("../src/index");
+const server = require("../../src/index");
 const request = require("supertest");
 
 describe("Endpoint auth/logout", () => {

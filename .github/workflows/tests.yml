@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - dev
+      - main
 defaults:
   run:
     working-directory: API
@@ -27,7 +28,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/createUser.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/auth/createUser.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -59,7 +60,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/login.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/auth/login.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -111,7 +112,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/getUser.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/user/getUser.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -143,7 +144,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/updateUser.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/user/updateUser.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -175,7 +176,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/deleteUser.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/user/deleteUser.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -207,7 +208,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/updatePassword.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/user/updatePassword.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -219,3 +220,131 @@ jobs:
 
       - name: Run all tests
         run: yarn test updatePassword
+  createProduct:
+    name: Create product
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/product/createProduct.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test createProduct
+  deleteProduct:
+    name: Delete product
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/product/deleteProduct.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test deleteProduct
+  getProduct:
+    name: Get product
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/product/getProduct.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test getProduct
+  updateProduct:
+    name: Update product
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/product/updateProduct.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test updateProduct
