@@ -8,13 +8,13 @@ describe("Endpoint product", () => {
     let expectArray = [
       {
         name: "produto1",
-        description: "descrição1",
+        description: "descricao1",
         price: 10.1,
         stock: 10,
       },
       {
         name: "produto2",
-        description: "descrição2",
+        description: "descricao2",
         price: 15,
         stock: 50,
       },
@@ -36,7 +36,7 @@ describe("Endpoint product", () => {
     expect(response.body).toEqual([
       {
         name: "produto1",
-        description: "descrição1",
+        description: "descricao1",
         price: 10.1,
         stock: 10,
       },
@@ -66,13 +66,13 @@ describe("Endpoint product", () => {
     let expectArray = [
       {
         name: "produto1",
-        description: "descrição1",
+        description: "descricao1",
         price: 10.1,
         stock: 10,
       },
       {
         name: "produto2",
-        description: "descrição2",
+        description: "descrica2",
         price: 15,
         stock: 50,
       },

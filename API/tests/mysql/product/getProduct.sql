@@ -9,5 +9,5 @@ CREATE TABLE IF NOT EXISTS `PataPetShop`.`product` (
   PRIMARY KEY (`name`))
 DEFAULT CHARACTER SET = utf8;
 
-INSERT INTO `product` VALUES ('produto1', 'descrição1', 10.1, 10);
-INSERT INTO `product` VALUES ('produto2', 'descrição2', 15, 50);
+INSERT INTO `product` VALUES ('produto1', 'descricao1', 10.1, 10);
+INSERT INTO `product` VALUES ('produto2', 'descricao2', 15, 50);
