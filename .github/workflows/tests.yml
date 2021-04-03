@@ -17,7 +17,7 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: 1234
           MYSQL_DATABASE: PataPetShop
-        options: --name mydb --collation-server=utf8_general_ci --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
         ports:
           - 3306:3306
     strategy:
@@ -101,7 +101,7 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: 1234
           MYSQL_DATABASE: PataPetShop
-        options: --name mydb --collation-server=utf8_general_ci --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
         ports:
           - 3306:3306
     strategy:
@@ -133,7 +133,7 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: 1234
           MYSQL_DATABASE: PataPetShop
-        options: --name mydb --collation-server=utf8_general_ci --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
         ports:
           - 3306:3306
     strategy:
@@ -165,7 +165,7 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: 1234
           MYSQL_DATABASE: PataPetShop
-        options: --name mydb --collation-server=utf8_general_ci --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
         ports:
           - 3306:3306
     strategy:
@@ -197,7 +197,7 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: 1234
           MYSQL_DATABASE: PataPetShop
-        options: --name mydb --collation-server=utf8_general_ci --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
         ports:
           - 3306:3306
     strategy:
@@ -229,7 +229,7 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: 1234
           MYSQL_DATABASE: PataPetShop
-        options: --name mydb --collation-server=utf8_general_ci --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
         ports:
           - 3306:3306
     strategy:
@@ -261,7 +261,7 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: 1234
           MYSQL_DATABASE: PataPetShop
-        options: --name mydb --collation-server=utf8_general_ci --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
         ports:
           - 3306:3306
     strategy:
@@ -293,7 +293,7 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: 1234
           MYSQL_DATABASE: PataPetShop
-        options: --name mydb --collation-server=utf8_general_ci --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
         ports:
           - 3306:3306
     strategy:
@@ -325,7 +325,7 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: 1234
           MYSQL_DATABASE: PataPetShop
-        options: --name mydb --collation-server=utf8_general_ci --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
         ports:
           - 3306:3306
     strategy:
