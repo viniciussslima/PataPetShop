@@ -10,8 +10,8 @@ app.use(express.json());
 app.use(routes);
 
 if (process.env.NODE_ENV !== "test") {
-  app.listen(3001, () => {
-    console.log("API rodando na porta 3001");
+  app.listen(process.env.PORT, () => {
+    console.log(`API rodando na porta ${process.env.PORT}`);
   });
 }
 
