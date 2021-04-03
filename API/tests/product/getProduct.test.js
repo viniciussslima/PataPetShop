@@ -72,7 +72,7 @@ describe("Endpoint product", () => {
       },
       {
         name: "produto2",
-        description: "descrica2",
+        description: "descricao2",
         price: 15,
         stock: 50,
       },
