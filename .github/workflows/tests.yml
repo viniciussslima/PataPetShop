@@ -240,7 +240,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/product/updatePassword.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/product/createProduct.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
