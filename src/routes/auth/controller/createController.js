@@ -1,6 +1,7 @@
 const crypto = require("crypto");
 
 const { getUserByUsername, createUser } = require("../dao");
+const log = require("../../../helpers/log");
 
 module.exports = async (req, res) => {
   let { username, password } = req.body;
@@ -25,5 +26,6 @@ module.exports = async (req, res) => {
     return res.status(200).send();
   } catch (err) {
     res.status(500).send();
+    return log.write(err.toString() + "\n");
   }
 };

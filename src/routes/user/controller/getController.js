@@ -1,4 +1,5 @@
 const { getUsers, getUsersByType } = require("../dao");
+const log = require("../../../helpers/log");
 
 module.exports = async (req, res) => {
   const { type } = req.query;
@@ -18,6 +19,7 @@ module.exports = async (req, res) => {
 
     res.status(200).send(users);
   } catch (err) {
-    res.status(500).send({ message: "Erro interno" });
+    res.status(500).send();
+    return log.write(err.toString() + "\n");
   }
 };

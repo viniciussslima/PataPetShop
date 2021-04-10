@@ -1,4 +1,5 @@
 const { getUserType } = require("./dao");
+const log = require("../helpers/log");
 
 module.exports = async (req, res, next, types) => {
   const { username } = req;
@@ -14,5 +15,6 @@ module.exports = async (req, res, next, types) => {
     }
   } catch (err) {
     res.status(500).send();
+    return log.write(err);
   }
 };

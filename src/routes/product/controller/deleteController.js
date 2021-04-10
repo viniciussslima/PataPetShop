@@ -1,4 +1,5 @@
 const { deleteProduct } = require("../dao");
+const log = require("../../../helpers/log");
 
 module.exports = async (req, res) => {
   const { products } = req.body;
@@ -14,7 +15,7 @@ module.exports = async (req, res) => {
       .status(400)
       .send({ message: "Você tem que passar pelo menos um produto" });
   } catch (err) {
-    console.log(err);
-    return res.status(500).send();
+    res.status(500).send();
+    return log.write(err.toString() + "\n");
   }
 };

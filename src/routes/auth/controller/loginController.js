@@ -2,6 +2,7 @@ const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 
 const { getPassword } = require("../dao");
+const log = require("../../../helpers/log");
 
 module.exports = async (req, res) => {
   let { username, password } = req.body;
@@ -28,6 +29,7 @@ module.exports = async (req, res) => {
       res.status(401).send({ message: "Senha incorreta" });
     }
   } catch (err) {
-    res.status(400).send();
+    res.status(500).send();
+    return log.write(err.toString() + "\n");
   }
 };

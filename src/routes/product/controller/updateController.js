@@ -1,4 +1,5 @@
 const { getProduct, updateProduct } = require("../dao");
+const log = require("../../../helpers/log");
 
 module.exports = async (req, res) => {
   const { name } = req.body;
@@ -16,7 +17,7 @@ module.exports = async (req, res) => {
 
     return res.status(200).send();
   } catch (err) {
-    console.log(err);
-    return res.status(500).send();
+    res.status(500).send();
+    return log.write(err.toString() + "\n");
   }
 };

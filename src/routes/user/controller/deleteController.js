@@ -1,4 +1,5 @@
 const { getUserType, getUserByUsername, deleteUser } = require("../dao");
+const log = require("../../../helpers/log");
 
 module.exports = async (req, res) => {
   const { username } = req.body;
@@ -20,6 +21,7 @@ module.exports = async (req, res) => {
 
     res.status(200).send();
   } catch (err) {
-    res.status(500).send({ messsage: "Erro interno" });
+    res.status(500).send();
+    return log.write(err.toString() + "\n");
   }
 };

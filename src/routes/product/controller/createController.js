@@ -1,4 +1,5 @@
 const { getProduct, createProduct } = require("../dao");
+const log = require("../../../helpers/log");
 
 module.exports = async (req, res) => {
   const { name } = req.body;
@@ -12,7 +13,7 @@ module.exports = async (req, res) => {
       message: "Esse produto já existe",
     });
   } catch (err) {
-    console.log(err);
-    return res.status(500).send();
+    res.status(500).send();
+    return log.write(err.toString() + "\n");
   }
 };
