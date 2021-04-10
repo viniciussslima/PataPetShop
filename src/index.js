@@ -2,10 +2,14 @@ require("dotenv").config({
   path: process.env.NODE_ENV === "test" ? "test.env" : ".env",
 });
 const express = require("express");
+const morgan = require("morgan");
 
+const log = require("./helpers/log");
 const routes = require("./routes");
 
 const app = express();
+
+app.use(morgan("tiny", { stream: log }));
 app.use(express.json());
 app.use(routes);
 
