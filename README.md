@@ -355,7 +355,7 @@ $ yarn test NomeDoArquivoDeTeste
     }
     ```
 
-- PUT - /cart
+- POST - /cart
 
   Adiciona um produto ao carrinho
 
@@ -363,7 +363,7 @@ $ yarn test NomeDoArquivoDeTeste
 
     ```javascript
     {
-        id: "productId",
+        product: "productName",
     }
     ```
 
