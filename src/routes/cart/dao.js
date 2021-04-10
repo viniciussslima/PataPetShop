@@ -6,6 +6,7 @@ const SQL = {
     "SELECT * FROM cart_product WHERE product = ? AND user = ?",
   updateQty: "UPDATE cart_product SET qty = ? WHERE product = ? AND user = ?",
   addProductCart: "INSERT INTO cart_product SET ?",
+  getCart: "SELECT * FROM cart_product WHERE user = ?",
 };
 
 exports.getProductByName = async (name) => {
@@ -31,4 +32,9 @@ exports.addProductCart = (productName, username) => {
     user: username,
     qty: 1,
   });
+};
+
+exports.getCart = async (username) => {
+  let [response] = await mysql.query(SQL.getCart, username);
+  return response;
 };
