@@ -1,6 +1,7 @@
 const crypto = require("crypto");
 
 const { checkPassword, updateUserPassword } = require("../dao");
+const log = require("../../../helpers/log");
 
 module.exports = async (req, res) => {
   const { password, newPassword } = req.body;
@@ -26,7 +27,7 @@ module.exports = async (req, res) => {
 
     res.status(200).send();
   } catch (err) {
-    console.log(err);
-    res.status(500).send({ message: "Erro interno" });
+    res.status(500).send();
+    return log.write(err.toString() + "\n");
   }
 };

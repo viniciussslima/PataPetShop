@@ -345,3 +345,227 @@ jobs:
 
       - name: Run all tests
         run: yarn test updateProduct
+  addProductOnCart:
+    name: Add product on cart
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/cart/addProduct.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test addProduct
+  getCart:
+    name: Get cart
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/cart/getCart.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test getCart
+  deleteAllProductsOnCart:
+    name: Delete all products on cart
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/cart/deleteAllProducts.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test deleteAllProducts
+  deleteOneProductOnCart:
+    name: Delete one product on cart
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/cart/deleteOneProduct.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test deleteOneProduct
+  buyPartOne:
+    name: Buy part 1
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/cart/buy1.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test buy1
+  buyPartTwo:
+    name: Buy part 2
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/cart/buy2.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test buy2
+  buyPartThree:
+    name: Buy part 3
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/cart/buy3.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test buy3

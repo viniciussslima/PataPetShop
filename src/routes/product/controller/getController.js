@@ -1,4 +1,5 @@
 const { getProducts, searchProducts } = require("../dao");
+const log = require("../../../helpers/log");
 
 module.exports = async (req, res) => {
   const { name } = req.query;
@@ -11,7 +12,7 @@ module.exports = async (req, res) => {
     let products = await searchProducts(name);
     return res.status(200).send(products);
   } catch (err) {
-    console.log(err);
-    return res.status(500).send();
+    res.status(500).send();
+    return log.write(err.toString() + "\n");
   }
 };
