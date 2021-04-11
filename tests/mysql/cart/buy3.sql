@@ -56,4 +56,4 @@ DEFAULT CHARACTER SET = utf8;
 
 INSERT INTO `user` VALUES ('teste1', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'admin');
 INSERT INTO `product` VALUES ('Racao de cachorro', 'descricao', 1.3, 1);
-INSERT INTO `cart_product` VALUES (1, 'Racao de cachorro', 'teste1');
+INSERT INTO `cart_product` VALUES (10, 'Racao de cachorro', 'teste1');
