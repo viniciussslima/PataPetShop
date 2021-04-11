@@ -355,7 +355,7 @@ $ yarn test NomeDoArquivoDeTeste
     }
     ```
 
-- PUT - /cart
+- POST - /cart
 
   Adiciona um produto ao carrinho
 
@@ -363,7 +363,7 @@ $ yarn test NomeDoArquivoDeTeste
 
     ```javascript
     {
-        id: "productId",
+        product: "productName",
     }
     ```
 
@@ -388,11 +388,13 @@ $ yarn test NomeDoArquivoDeTeste
     200 - Sucesso
 
     ```javascript
-    [{
-        name: "produto1"
-        description: "descrição"
-        price: 10.10
-    }]
+    [
+      {
+        name: "produto1",
+        price: 10.1,
+        qty: 2,
+      },
+    ];
     ```
 
 - DELETE - /cart
@@ -403,21 +405,38 @@ $ yarn test NomeDoArquivoDeTeste
 
     200 - Sucesso
 
-- DELETE - /cart/products
+- DELETE - /cart/product
 
-  Apaga produtos específicos do carrinho
+  Apaga um produto específico do carrinho
 
   - BODY
 
     ```javascript
     {
-        products: ["product1Id", "product2Id"],
+        product: "product1",
+        qty: 1,
     }
     ```
 
   - REPOSTAS
 
     200 - Sucesso
+
+    400 - Error
+
+    ```javascript
+    {
+      message: "Não é possivel apagar uma quantidade superior ao que tem no carrinho",
+    }
+    ```
+
+    400 - Error
+
+    ```javascript
+    {
+      message: "Não é possivel apagar um produto que não está no carrinho",
+    }
+    ```
 
 - POST - /cart/buy
 
@@ -434,6 +453,38 @@ $ yarn test NomeDoArquivoDeTeste
       message: "O carrinho está vazio",
     }
     ```
+
+    406 - Error
+
+    ```javascript
+    {
+      message: "O produto '{Nome do produto}' não está disponível no estoque",
+    }
+    ```
+
+    406 - Error
+
+    ```javascript
+    {
+      message: "O produto '{Nome do produto}' só tem ${product.stock} unidades",
+    }
+    ```
+
+- GET - /history
+
+  Informa o historico de compras de um usuario
+
+  - REPOSTAS
+
+    200 - Sucesso
+
+- GET - /history/:id
+
+  Informa os dados de uma compra de um usuario
+
+  - REPOSTAS
+
+    200 - Sucesso
 
 - POST - /scale
 
