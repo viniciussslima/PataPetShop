@@ -365,7 +365,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/product/addProduct.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/cart/addProduct.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -397,7 +397,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/product/getCart.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/cart/getCart.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -429,7 +429,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/product/deleteAllProducts.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/cart/deleteAllProducts.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -461,7 +461,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/product/deleteOneProduct.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/cart/deleteOneProduct.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -493,7 +493,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/product/buy1.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/cart/buy1.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -525,7 +525,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/product/buy2.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/cart/buy2.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -557,7 +557,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       - name: migration
-        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/product/buy3.sql
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/cart/buy3.sql
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
