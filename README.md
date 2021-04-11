@@ -388,11 +388,13 @@ $ yarn test NomeDoArquivoDeTeste
     200 - Sucesso
 
     ```javascript
-    [{
-        name: "produto1"
-        description: "descrição"
-        price: 10.10
-    }]
+    [
+      {
+        name: "produto1",
+        price: 10.1,
+        qty: 2,
+      },
+    ];
     ```
 
 - DELETE - /cart
@@ -403,7 +405,7 @@ $ yarn test NomeDoArquivoDeTeste
 
     200 - Sucesso
 
-- DELETE - /cart/products
+- DELETE - /cart/product
 
   Apaga um produto específico do carrinho
 
