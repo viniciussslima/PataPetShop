@@ -14,13 +14,13 @@ module.exports = async (req, res) => {
 
     let stop = cart.some((product) => {
       if (product.stock < product.qty) {
-        if (product.stock < 0) {
+        if (product.stock === 0) {
           res.status(400).send({
             message: `O produto '${product.name}' não está disponível no estoque`,
           });
         } else {
           res.status(400).send({
-            message: `O produto '${product.name}' só tem ${product.stock} unidades`,
+            message: `O produto '${product.name}' só tem ${product.stock} unidade(s)`,
           });
         }
         return true;

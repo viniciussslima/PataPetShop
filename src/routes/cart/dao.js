@@ -6,7 +6,9 @@ const SQL = {
     "SELECT * FROM cart_product WHERE product = ? AND user = ?",
   updateQty: "UPDATE cart_product SET qty = ? WHERE product = ? AND user = ?",
   addProductCart: "INSERT INTO cart_product SET ?",
-  getCartProducts: "SELECT * FROM cart_product WHERE user = ?",
+  getCartProducts: `SELECT product.name, product.price, cart_product.qty FROM cart_product 
+  INNER JOIN product ON product.name=cart_product.product
+  WHERE user = ?`,
   deleteAllProducts: "DELETE FROM cart_product WHERE user = ?",
   deleteOneProduct: "DELETE FROM cart_product WHERE user = ? AND product = ?",
   getCart: `SELECT product.name, product.description,product.price * cart_product.qty AS value, 
