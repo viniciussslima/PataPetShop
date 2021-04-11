@@ -9,7 +9,7 @@ describe("Endpoint cart", () => {
       .post("/cart")
       .set("x-access-token", token)
       .send({
-        product: "Ração de cachorro",
+        product: "Racao de cachorro",
       });
 
     expect(response.status).toBe(200);
@@ -36,7 +36,7 @@ describe("Endpoint cart", () => {
 describe("Endpoint cart", () => {
   it("Fail", async () => {
     const response = await request(server).post("/cart").send({
-      name: "Ração de cachorro",
+      name: "Racao de cachorro",
     });
 
     expect(response.status).toBe(401);

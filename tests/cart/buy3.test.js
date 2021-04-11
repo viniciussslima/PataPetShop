@@ -12,7 +12,7 @@ describe("Endpoint cart", () => {
 
     expect(response.status).toBe(400);
     expect(response.body).toEqual({
-      message: "O produto 'Ração de cachorro' só tem 1 unidade(s)",
+      message: "O produto 'Racao de cachorro' só tem 1 unidade(s)",
     });
   });
 });

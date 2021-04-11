@@ -12,7 +12,7 @@ describe("Endpoint cart", () => {
 
     expect(response.status).toBe(400);
     expect(response.body).toEqual({
-      message: "O produto 'Ração de cachorro' não está disponível no estoque",
+      message: "O produto 'Racao de cachorro' não está disponível no estoque",
     });
   });
 });

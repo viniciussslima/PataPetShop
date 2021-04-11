@@ -9,7 +9,7 @@ describe("Endpoint cart", () => {
       .delete("/cart/product")
       .set("x-access-token", token)
       .send({
-        product: "Ração de cachorro",
+        product: "Racao de cachorro",
         qty: 2,
       });
 
@@ -46,7 +46,7 @@ describe("Endpoint cart", () => {
       .delete("/cart/product")
       .set("x-access-token", token)
       .send({
-        product: "Ração de cachorro",
+        product: "Racao de cachorro",
         qty: 1,
       });
 
@@ -57,7 +57,7 @@ describe("Endpoint cart", () => {
 describe("Endpoint cart", () => {
   it("Fail", async () => {
     const response = await request(server).delete("/cart/product").send({
-      name: "Ração de cachorro",
+      name: "Racao de cachorro",
     });
 
     expect(response.status).toBe(401);

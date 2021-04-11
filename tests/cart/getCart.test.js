@@ -12,7 +12,7 @@ describe("Endpoint cart", () => {
 
     let expectArray = [
       {
-        name: "Ração de cachorro",
+        name: "Racao de cachorro",
         price: 1.3,
         qty: 1,
       },

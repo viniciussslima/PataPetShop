@@ -9,8 +9,8 @@ describe("Endpoint product", () => {
       .post("/product/")
       .set("x-access-token", token)
       .send({
-        name: "Ração de cachorro",
-        description: "Ração sabor frango",
+        name: "Racao de cachorro",
+        description: "Racao sabor frango",
         price: 130,
         stock: 10,
       });
@@ -26,8 +26,8 @@ describe("Endpoint product", () => {
       .post("/product")
       .set("x-access-token", token)
       .send({
-        name: "Ração de cachorro",
-        description: "Ração sabor frango",
+        name: "Racao de cachorro",
+        description: "Racao sabor frango",
         price: 55,
         stock: 10,
       });
@@ -46,8 +46,8 @@ describe("Endpoint product", () => {
       .post("/product")
       .set("x-access-token", token)
       .send({
-        name: "Ração de cachorro",
-        description: "Ração sabor frango",
+        name: "Racao de cachorro",
+        description: "Racao sabor frango",
         price: 55,
         stock: 10,
       });
