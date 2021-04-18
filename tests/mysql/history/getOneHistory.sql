@@ -53,5 +53,5 @@ INSERT INTO `user` VALUES ('admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873f
 INSERT INTO `product` VALUES ('Racao de cachorro', 'descricao', 1.3, 10);
 INSERT INTO `product` VALUES ('racao recheada', 'descricao', 10, 88);
 INSERT INTO `buy` VALUES ("db4dc8a0-a64b-47c0-ae5d-1f6fdfefdb0e", 33.9, "2021-04-17 14:48:49", "admin");
-INSERT INTO `buy_products` VALUES ("db4dc8a0-a64b-47c0-ae5d-1f6fdfefdb0e", "Ração de cachorro", 3);
+INSERT INTO `buy_products` VALUES ("db4dc8a0-a64b-47c0-ae5d-1f6fdfefdb0e", "Racao de cachorro", 3);
 INSERT INTO `buy_products` VALUES ("db4dc8a0-a64b-47c0-ae5d-1f6fdfefdb0e", "racao recheada", 3);

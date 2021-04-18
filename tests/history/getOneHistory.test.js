@@ -14,7 +14,7 @@ describe("Endpoint history", () => {
       date: "2021-04-17T17:48:49.000Z",
       id: "db4dc8a0-a64b-47c0-ae5d-1f6fdfefdb0e",
       products: [
-        { product: "Ração de cachorro", qty: 3 },
+        { product: "Racao de cachorro", qty: 3 },
         { product: "racao recheada", qty: 3 },
       ],
       user: "admin",
