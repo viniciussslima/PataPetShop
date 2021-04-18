@@ -71,10 +71,10 @@ $ yarn test NomeDoArquivoDeTeste
 
   - BODY
 
-    ```javascript
+    ```JSON
     {
-        username: "username",
-        password: "password"
+        "username": "username",
+        "password": "password"
     }
     ```
 
@@ -84,9 +84,9 @@ $ yarn test NomeDoArquivoDeTeste
 
     409 - Error
 
-    ```javascript
+    ```JSON
     {
-        message: "Esse usuário já existe",
+        "message": "Esse usuário já existe",
     }
     ```
 
@@ -96,10 +96,10 @@ $ yarn test NomeDoArquivoDeTeste
 
   - BODY
 
-    ```javascript
+    ```JSON
     {
-        username: "username",
-        password: "password"
+        "username": "username",
+        "password": "password"
     }
     ```
 
@@ -107,26 +107,26 @@ $ yarn test NomeDoArquivoDeTeste
 
     200 - Sucesso
 
-    ```javascript
+    ```JSON
     {
-      token: "token", // Esse token deve ser usado para todas as requisições que necessitam de autorização
+      "token": "token", // Esse token deve ser usado para todas as requisições que necessitam de autorização
     }
 
     ```
 
     401 - Error
 
-    ```javascript
+    ```JSON
     {
-        message: "Esse usuário não existe",
+        "message": "Esse usuário não existe",
     }
     ```
 
     401 - Error
 
-    ```javascript
+    ```JSON
     {
-        message: "Senha incorreta",
+        "message": "Senha incorreta",
     }
     ```
 
@@ -138,9 +138,9 @@ $ yarn test NomeDoArquivoDeTeste
 
     200 - Sucesso
 
-    ```javascript
+    ```JSON
     {
-        token: null,
+        "token": null,
     }
     ```
 
@@ -150,10 +150,10 @@ $ yarn test NomeDoArquivoDeTeste
 
   - BODY
 
-    ```javascript
+    ```JSON
     {
-        username: "username",
-        type: "vet" // Esse campo aceita apenas client, vet, seller, washer e admin. Os tipos só podem ser atualizados por administradores
+        "username": "username",
+        "type": "vet" // Esse campo aceita apenas client, vet, seller, washer e admin. Os tipos só podem ser atualizados por administradores
     }
     ```
 
@@ -163,17 +163,17 @@ $ yarn test NomeDoArquivoDeTeste
 
     400 - Error
 
-    ```javascript
+    ```JSON
     {
-      message: "O valor do campo type é inválido",
+      "message": "O valor do campo type é inválido",
     }
     ```
 
     401 - Error
 
-    ```javascript
+    ```JSON
     {
-        message: "Esse usuário não existe",
+        "message": "Esse usuário não existe",
     }
     ```
 
@@ -183,10 +183,10 @@ $ yarn test NomeDoArquivoDeTeste
 
   - BODY
 
-    ```javascript
+    ```JSON
     {
-        password: "password",
-        newPassword: "newPassword"
+        "password": "password",
+        "newPassword": "newPassword"
     }
     ```
 
@@ -196,9 +196,9 @@ $ yarn test NomeDoArquivoDeTeste
 
     401 - Error
 
-    ```javascript
+    ```JSON
     {
-        message: "Senha incorreta",
+        "message": "Senha incorreta",
     }
     ```
 
@@ -208,9 +208,9 @@ $ yarn test NomeDoArquivoDeTeste
 
   - QUERY (OPCIONAL)
 
-    ```javascript
+    ```JSON
     {
-      type: "vet"; // O tipo pode ser apenas vet, washer, seller ou admin
+      "type": "vet"; // O tipo pode ser apenas vet, washer, seller ou admin
     }
     ```
 
@@ -218,20 +218,20 @@ $ yarn test NomeDoArquivoDeTeste
 
     200 - Sucesso
 
-    ```javascript
+    ```JSON
     [
       {
-        username: "username",
-        type: "vet",
+        "username": "username",
+        "type": "vet",
       },
     ];
     ```
 
     400 - Error
 
-    ```javascript
+    ```JSON
     {
-      message: "O valor do campo type é inválido"
+      "message": "O valor do campo type é inválido"
     },
     ```
 
@@ -245,9 +245,9 @@ $ yarn test NomeDoArquivoDeTeste
 
     401 - Error
 
-    ```javascript
+    ```JSON
     {
-        message: "Esse usuário não existe",
+        "message": "Esse usuário não existe",
     }
     ```
 
@@ -255,12 +255,12 @@ $ yarn test NomeDoArquivoDeTeste
 
   - BODY
 
-    ```javascript
+    ```JSON
     {
-        name: "nome",
-        description: "descrição",
-        price: 1.30,
-        stock: 10
+        "name": "nome",
+        "description": "descrição",
+        "price": 1.30,
+        "stock": 10
     }
     ```
 
@@ -270,9 +270,9 @@ $ yarn test NomeDoArquivoDeTeste
 
     409 - Error
 
-    ```javascript
+    ```JSON
     {
-        message: "Esse produto já existe",
+        "message": "Esse produto já existe",
     }
     ```
 
@@ -282,9 +282,9 @@ $ yarn test NomeDoArquivoDeTeste
 
   - QUERY (OPCIONAL)
 
-    ```javascript
+    ```JSON
     {
-        name: "name",
+        "name": "name",
     }
     ```
 
@@ -292,13 +292,13 @@ $ yarn test NomeDoArquivoDeTeste
 
     200 - Sucesso
 
-    ```javascript
+    ```JSON
     [
       {
-        name: "produto1",
-        description: "descrição",
-        price: 10.1,
-        stock: 10,
+        "name": "produto1",
+        "description": "descrição",
+        "price": 10.1,
+        "stock": 10,
       },
     ];
     ```
@@ -309,9 +309,9 @@ $ yarn test NomeDoArquivoDeTeste
 
   - BODY
 
-    ```javascript
+    ```JSON
     {
-      products: ["product1Id", "product2Id"],
+      "products": ["product1Id", "product2Id"],
 
     }
     ```
@@ -322,9 +322,9 @@ $ yarn test NomeDoArquivoDeTeste
 
     400 - Error
 
-    ```javascript
+    ```JSON
     {
-      message: "Você tem que passar pelo menos um produto";
+      "message": "Você tem que passar pelo menos um produto";
     }
     ```
 
@@ -334,12 +334,12 @@ $ yarn test NomeDoArquivoDeTeste
 
   - BODY
 
-    ```javascript
+    ```JSON
     {
-        name: "nome do produto",
-        description: "descrição",
-        price: 10,
-        stock: 10
+        "name": "nome do produto",
+        "description": "descrição",
+        "price": 10,
+        "stock": 10
     }
     ```
 
@@ -349,9 +349,9 @@ $ yarn test NomeDoArquivoDeTeste
 
     400 - Error
 
-    ```javascript
+    ```JSON
     {
-      message: "Esse produto não existe",
+      "message": "Esse produto não existe",
     }
     ```
 
@@ -361,9 +361,9 @@ $ yarn test NomeDoArquivoDeTeste
 
   - BODY
 
-    ```javascript
+    ```JSON
     {
-        product: "productName",
+        "product": "productName",
     }
     ```
 
@@ -373,9 +373,9 @@ $ yarn test NomeDoArquivoDeTeste
 
     401 - Error
 
-    ```javascript
+    ```JSON
     {
-      message: "Esse produto não existe",
+      "message": "Esse produto não existe",
     }
     ```
 
@@ -387,12 +387,12 @@ $ yarn test NomeDoArquivoDeTeste
 
     200 - Sucesso
 
-    ```javascript
+    ```JSON
     [
       {
-        name: "produto1",
-        price: 10.1,
-        qty: 2,
+        "name": "produto1",
+        "price": 10.1,
+        "qty": 2,
       },
     ];
     ```
@@ -411,10 +411,10 @@ $ yarn test NomeDoArquivoDeTeste
 
   - BODY
 
-    ```javascript
+    ```JSON
     {
-        product: "product1",
-        qty: 1,
+        "product": "product1",
+        "qty": 1,
     }
     ```
 
@@ -424,17 +424,17 @@ $ yarn test NomeDoArquivoDeTeste
 
     400 - Error
 
-    ```javascript
+    ```JSON
     {
-      message: "Não é possivel apagar uma quantidade superior ao que tem no carrinho",
+      "message": "Não é possivel apagar uma quantidade superior ao que tem no carrinho",
     }
     ```
 
     400 - Error
 
-    ```javascript
+    ```JSON
     {
-      message: "Não é possivel apagar um produto que não está no carrinho",
+      "message": "Não é possivel apagar um produto que não está no carrinho",
     }
     ```
 
@@ -448,25 +448,25 @@ $ yarn test NomeDoArquivoDeTeste
 
     406 - Error
 
-    ```javascript
+    ```JSON
     {
-      message: "O carrinho está vazio",
+      "message": "O carrinho está vazio",
     }
     ```
 
     406 - Error
 
-    ```javascript
+    ```JSON
     {
-      message: "O produto '{Nome do produto}' não está disponível no estoque",
+      "message": "O produto '{Nome do produto}' não está disponível no estoque",
     }
     ```
 
     406 - Error
 
-    ```javascript
+    ```JSON
     {
-      message: "O produto '{Nome do produto}' só tem ${product.stock} unidades",
+      "message": "O produto '{Nome do produto}' só tem ${product.stock} unidades",
     }
     ```
 
@@ -492,12 +492,12 @@ $ yarn test NomeDoArquivoDeTeste
 
   - BODY
 
-    ```javascript
+    ```JSON
     {
-        id: "employeeId",
-        date: "01/01/2021",
-        startHour: "10:30",
-        endHour: "12:00"
+        "employee": "employeeUsername",
+        "date": "01/01/2021",
+        "startHour": "10:30",
+        "endHour": "12:00"
     }
     ```
 
@@ -507,35 +507,26 @@ $ yarn test NomeDoArquivoDeTeste
 
     409 - Error
 
-    ```javascript
+    ```JSON
     {
-      message: "Esse horario desse funcionario está ocupado";
+      "message": "Esse horario desse funcionario está ocupado";
     }
     ```
 
-- GET - /scale
+- GET - /scale/:employee
 
   Informa os horários de um funcionário
-
-  - QUERY
-
-    ```javascript
-    {
-        id: "employeeId",
-    }
-    ```
 
   - RESPOSTAS
 
     200 - Sucesso
 
-    ```javascript
+    ```JSON
     [
       {
-        id: "scaleId",
-        date: "01/01/2021",
-        startHour: "10:30",
-        endHour: "12:00",
+        "date": "01/01/2021",
+        "startHour": "10:30",
+        "endHour": "12:00",
       },
     ];
     ```
@@ -546,10 +537,15 @@ $ yarn test NomeDoArquivoDeTeste
 
   - BODY
 
-    ```javascript
+    ```JSON
     {
-        id: "scaleId",
-        user: "userId"
+        "scale": {
+          "employee": "username",
+          "date": "01/01/2021",
+          "startHour": "10:30",
+          "endHour": "12:00",
+        },
+        "user": "userUsename"
     }
     ```
 
@@ -559,9 +555,9 @@ $ yarn test NomeDoArquivoDeTeste
 
     409 - Erro
 
-    ```javascript
+    ```JSON
     {
-      message: "Esse horário já está agendado"
+      "message": "Esse horário já está agendado"
     },
     ```
 
@@ -573,13 +569,14 @@ $ yarn test NomeDoArquivoDeTeste
 
     200 - Sucesso
 
-  ```javascript
+  ```JSON
   [
     {
-      id: "scaleId",
-      date: "01/01/2021",
-      startHour: "10:30",
-      endHour: "12:00",
+      "employee": "username",
+      "client": "usernmae",
+      "date": "01/01/2021",
+      "startHour": "10:30",
+      "endHour": "12:00",
     },
   ];
   ```
