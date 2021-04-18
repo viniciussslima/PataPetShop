@@ -34,6 +34,7 @@ module.exports = async (req, res) => {
 
     let buy = {
       id: uuidv4(),
+      user: req.username,
       value: 0,
     };
 
@@ -42,7 +43,7 @@ module.exports = async (req, res) => {
     });
     buy.value = Number(buy.value).toFixed(2);
 
-    await buyCart(buy, cart, req.username);
+    await buyCart(buy, cart);
     await deleteAllProducts(req.username);
     await updateStock(cart);
 

@@ -65,12 +65,11 @@ exports.getCart = async (username) => {
   return response;
 };
 
-exports.buyCart = async (buy, products, user) => {
+exports.buyCart = async (buy, products) => {
   await mysql.query(SQL.buy, buy);
   for (product of products) {
     let newProduct = {
       buy: buy.id,
-      user,
       product: product.name,
       qty: product.qty,
     };
