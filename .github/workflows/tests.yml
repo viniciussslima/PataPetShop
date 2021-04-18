@@ -570,7 +570,7 @@ jobs:
       - name: Run all tests
         run: yarn test buy3
   getHistory:
-    name: get all history
+    name: Get all history
     runs-on: ubuntu-latest
     services:
       mydb:
@@ -602,7 +602,7 @@ jobs:
       - name: Run all tests
         run: yarn test getHistory
   getOneHistory:
-    name: get all history
+    name: Get one history
     runs-on: ubuntu-latest
     services:
       mydb:
@@ -634,7 +634,7 @@ jobs:
       - name: Run all tests
         run: yarn test getOneHistory
   createScale:
-    name: get all history
+    name: Create scale
     runs-on: ubuntu-latest
     services:
       mydb:
@@ -666,7 +666,7 @@ jobs:
       - name: Run all tests
         run: yarn test createScale
   getScale:
-    name: get all history
+    name: Get scale
     runs-on: ubuntu-latest
     services:
       mydb:
@@ -698,7 +698,7 @@ jobs:
       - name: Run all tests
         run: yarn test getScale
   createScheduling:
-    name: get all history
+    name: Create scheduling
     runs-on: ubuntu-latest
     services:
       mydb:
@@ -730,7 +730,7 @@ jobs:
       - name: Run all tests
         run: yarn test createScheduling
   getScheduling:
-    name: get all history
+    name: Get scheduling
     runs-on: ubuntu-latest
     services:
       mydb:
