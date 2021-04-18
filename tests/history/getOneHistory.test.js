@@ -4,7 +4,7 @@ const { login } = require("../helpers");
 
 describe("Endpoint history", () => {
   it("Success", async () => {
-    const token = await login("teste1", "1234");
+    const token = await login("admin", "admin");
     const response = await request(server)
       .get("/history/db4dc8a0-a64b-47c0-ae5d-1f6fdfefdb0e")
       .set("x-access-token", token)
