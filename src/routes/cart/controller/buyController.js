@@ -1,7 +1,7 @@
 const { v4: uuidv4 } = require("uuid");
 
 const { getCart, buyCart, deleteAllProducts, updateStock } = require("../dao");
-const log = require("../../../helpers/log");
+const { log } = require("../../../helpers");
 
 module.exports = async (req, res) => {
   try {

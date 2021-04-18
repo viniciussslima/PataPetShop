@@ -4,7 +4,7 @@ require("dotenv").config({
 const express = require("express");
 const morgan = require("morgan");
 
-const log = require("./helpers/log");
+const { log } = require("./helpers");
 const routes = require("./routes");
 
 const app = express();

@@ -1,5 +1,5 @@
 const { deleteAllProducts } = require("../dao");
-const log = require("../../../helpers/log");
+const { log } = require("../../../helpers");
 
 module.exports = async (req, res) => {
   try {

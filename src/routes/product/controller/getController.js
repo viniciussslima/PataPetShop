@@ -1,5 +1,5 @@
 const { getProducts, searchProducts } = require("../dao");
-const log = require("../../../helpers/log");
+const { log } = require("../../../helpers");
 
 module.exports = async (req, res) => {
   const { name } = req.query;
