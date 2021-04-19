@@ -4,16 +4,22 @@
 
 ## DIM0547 - DESENVOLVIMENTO DE SISTEMAS WEB II
 
-## Alunos:
+## Alunos
 
 - ### Daniele Carvalho
 - ### Vinicius Santos
+
+## Versão online
+
+<a href="https://pata-pet-shop.herokuapp.com">https://pata-pet-shop.herokuapp.com</a>
 
 ## Variaveis de ambiente
 
 - MYSQL_URL: URL do banco de dados mysql
 - MYSQL_USER: Usuario do banco de dados
 - MYSQL_PASSWORD: Senha do usuario do banco de dados
+- MYSQL_DB: Nome do database do mysql
+- JWT_SECRET: Variavel usada para gerar os tokens do JWT
 
 ## Como usar
 
