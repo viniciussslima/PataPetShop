@@ -49,4 +49,3 @@ INSERT INTO `scale` VALUES ('teste2', '2021-04-11 00:00:00', '2021-04-11 14:30:0
 INSERT INTO `scale` VALUES ('teste2', '2021-04-12 00:00:00', '2021-04-12 14:30:00', '2021-04-12 15:00:00');
 INSERT INTO `scheduling` VALUES ('teste2', '2021-01-01 12:00:00', '2021-01-01 10:30:00', '2021-01-01 00:00:00', 'teste1');
 INSERT INTO `scheduling` VALUES ('teste2', '2021-01-01 20:00:00', '2021-01-01 15:00:00', '2021-01-01 00:00:00', 'teste1');
-INSERT INTO `scheduling` VALUES ('teste2', '2021-04-11 15:00:00', '2021-04-11 14:30:00', '2021-04-11 00:00:00', 'teste1');
