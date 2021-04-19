@@ -569,3 +569,195 @@ jobs:
 
       - name: Run all tests
         run: yarn test buy3
+  getHistory:
+    name: Get all history
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/history/getHistory.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test getHistory
+  getOneHistory:
+    name: Get one history
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/history/getOneHistory.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test getOneHistory
+  createScale:
+    name: Create scale
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/scale/createScale.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test createScale
+  getScale:
+    name: Get scale
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/scale/getScale.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test getScale
+  createScheduling:
+    name: Create scheduling
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/scheduling/createScheduling.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test createScheduling
+  getScheduling:
+    name: Get scheduling
+    runs-on: ubuntu-latest
+    services:
+      mydb:
+        image: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: PataPetShop
+        options: --name mydb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+        ports:
+          - 3306:3306
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      - name: migration
+        run: docker exec -i mydb mysql -uroot -p1234 < tests/mysql/scheduling/getScheduling.sql
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run all tests
+        run: yarn test getScheduling

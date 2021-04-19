@@ -1,5 +1,5 @@
 const { getUserType, getUserByUsername, deleteUser } = require("../dao");
-const log = require("../../../helpers/log");
+const { log } = require("../../../helpers");
 
 module.exports = async (req, res) => {
   const { username } = req.body;

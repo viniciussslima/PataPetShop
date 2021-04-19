@@ -1,7 +1,7 @@
 const { v4: uuidv4 } = require("uuid");
 
 const { getCart, buyCart, deleteAllProducts, updateStock } = require("../dao");
-const log = require("../../../helpers/log");
+const { log } = require("../../../helpers");
 
 module.exports = async (req, res) => {
   try {
@@ -34,6 +34,7 @@ module.exports = async (req, res) => {
 
     let buy = {
       id: uuidv4(),
+      user: req.username,
       value: 0,
     };
 
@@ -42,7 +43,7 @@ module.exports = async (req, res) => {
     });
     buy.value = Number(buy.value).toFixed(2);
 
-    await buyCart(buy, cart, req.username);
+    await buyCart(buy, cart);
     await deleteAllProducts(req.username);
     await updateStock(cart);
 

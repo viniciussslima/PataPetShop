@@ -1,7 +1,7 @@
 const crypto = require("crypto");
 
 const { checkPassword, updateUserPassword } = require("../dao");
-const log = require("../../../helpers/log");
+const { log } = require("../../../helpers");
 
 module.exports = async (req, res) => {
   const { password, newPassword } = req.body;
