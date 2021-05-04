@@ -13,6 +13,12 @@
 
 <a href="https://pata-pet-shop.herokuapp.com">https://pata-pet-shop.herokuapp.com</a>
 
+## Dependências
+
+- Docker
+- NodeJS
+- npm ou yarn
+
 ## Variaveis de ambiente
 
 - MYSQL_URL: URL do banco de dados mysql
@@ -38,6 +44,20 @@ $ yarn install
 ```
 
 ### Segundo passo
+
+Dentro da pasta API execute o comando:
+
+```bash
+$ npm run db
+```
+
+OU
+
+```bash
+$ yarn db
+```
+
+### Terceiro passo
 
 Dentro da pasta API execute o comando:
 
@@ -70,31 +90,6 @@ $ yarn test NomeDoArquivoDeTeste
 ```
 
 ## Endpoints
-
-- POST - /auth/create
-
-  Cadastra um novo usuário
-
-  - BODY
-
-    ```JSON
-    {
-        "username": "username",
-        "password": "password"
-    }
-    ```
-
-  - RESPOSTAS
-
-    201 - Sucesso
-
-    409 - Error
-
-    ```JSON
-    {
-        "message": "Esse usuário já existe",
-    }
-    ```
 
 - POST - /auth/login
 
@@ -147,6 +142,31 @@ $ yarn test NomeDoArquivoDeTeste
     ```JSON
     {
         "token": null,
+    }
+    ```
+
+- POST - /user
+
+  Cadastra um novo usuário
+
+  - BODY
+
+    ```JSON
+    {
+        "username": "username",
+        "password": "password"
+    }
+    ```
+
+  - RESPOSTAS
+
+    201 - Sucesso
+
+    409 - Error
+
+    ```JSON
+    {
+        "message": "Esse usuário já existe",
     }
     ```
 
