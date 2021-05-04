@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  PataPetShopM:
+    image: mysql
+    volumes:
+      - ./configuration/mysql:/docker-entrypoint-initdb.d/
+      - ./mysql/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 1234
+      MYSQL_DATABASE: PataPetShop
+      TZ: America/Recife
+    ports:
+      - 3306:3306

@@ -105,3 +105,6 @@ dist
 
 # vscode
 .vsls.json
+
+# docker
+docker/mysql/
