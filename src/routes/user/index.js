@@ -31,7 +31,7 @@ router.put(
 );
 router.get(
   "/",
-  (req, res, next) => validateSchema(req, res, next, getUserSchema, query),
+  (req, res, next) => validateSchema(req, res, next, getUserSchema, "query"),
   jwtVerify,
   (req, res, next) =>
     verifyType(req, res, next, ["client", "vet", "seller", "washer"]),
