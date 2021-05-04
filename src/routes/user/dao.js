@@ -2,6 +2,7 @@ const mysql = require("../../db");
 
 const SQL = {
   getUserByUsername: "SELECT username, type FROM user WHERE username = ?",
+  createUser: "INSERT INTO user SET ?",
   updateUser: "UPDATE user SET type = ? WHERE username = ?",
   getUsers: "SELECT username, type FROM user WHERE type <> 'client'",
   getUsersByType: "SELECT username, type FROM user WHERE type = ?",
@@ -15,6 +16,10 @@ const SQL = {
 exports.getUserByUsername = async (username) => {
   let [[response]] = await mysql.query(SQL.getUserByUsername, [username]);
   return response;
+};
+
+exports.createUser = async (user) => {
+  await mysql.query(SQL.createUser, user);
 };
 
 exports.updateUser = async (username, type) => {

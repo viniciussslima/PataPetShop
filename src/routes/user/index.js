@@ -3,11 +3,16 @@ const router = express.Router();
 
 const jwtVerify = require("../../middwares/jwtVerify");
 const verifyType = require("../../middwares/verifyType");
+const createController = require("./controller/createController");
 const updateController = require("./controller/updateController");
 const getController = require("./controller/getController");
 const deleteController = require("./controller/deleteController");
 const updatePasswordController = require("./controller/updatePasswordController");
 
+router.post(
+  "/",
+  createController
+);
 router.put(
   "/",
   jwtVerify,
